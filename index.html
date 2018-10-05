@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- manifest -->
+		<link rel="manifest" href="manifest.json">
+		<!-- タイトル -->
+		<title>タブバーでのタイトル</title>
+		<!-- css -->
+		<link rel="stylesheet" href="css/style.css">
+		<!-- ios用のアイコン設定 -->
+		<link rel="apple-touch-icon" href="images/pwa.png"/>
+		<!-- favicon設定 -->
+		<link rel="shortcut icon" href="images/pwa.png">
+		<!-- ステータスバーの色 -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="white">
+	</head>
+	<body>
+		<p>Todo:</p>
+		<p>manifestを調べる</p>
+		<p>ServiceWorkerを調べる</p>
+		<p>jsでブラウザを調べて、ServiceWorkerに対応しているかを確認する</p>
+		<p>iosで登録用のバナーをつける</p>
+		<p>iconを変える</p>
+		<p>pwa自動生成ツールをつくる</p>
+		<p>タイトルを変える</p>
+		<script>
+		// ServiceWorker登録：https://developers.google.com/web/fundamentals/primers/service-workers/?hl=ja
+		// jsのnavigatorオブジェクトから"serviceWorker"が存在するか確認する
+		if ('serviceWorker' in navigator) {
+			// ページからService Workerを登録する
+			navigator.serviceWorker.register('sw.js').then(function(registration) {
+				// 登録成功
+				console.log('サービスワーカーの登録成功');
+			}).catch(function(err) {
+				// 登録失敗
+				console.log('サービスワーカーの登録失敗: ', err);
+			});
+		}
+		</script>
+	</body>
+</html>
